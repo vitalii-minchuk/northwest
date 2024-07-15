@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/db";
 
 export default async function Home() {
 	const session = await getServerSession(authOptions);
@@ -13,7 +13,7 @@ export default async function Home() {
 		);
 	}
 
-	const user = await prisma.user.findUnique({
+	const user = await db.user.findUnique({
 		where: {
 			id: session.user.id,
 		},

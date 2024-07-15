@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-import ThemeToggle from "@/app/components/theme/theme-select";
+import { Separator } from "@/components/ui/separator";
+import ThemeToggle from "@/components/theme/theme-select";
+import SignInButton from "@/components/layout/auth-buttons";
 
 export default function Nav() {
 	return (
@@ -29,7 +31,7 @@ export default function Nav() {
 					<div>
 						<ThemeToggle />
 					</div>
-					<SignInButton botUsername={process.env.BOT_USERNAME} />
+					<SignInButton botUsername={process.env.BOT_USERNAME!} />
 				</div>
 			</div>
 			<Separator />
